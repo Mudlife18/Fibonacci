@@ -1,1 +1,22 @@
+#include <stdio.h>
+#include <gmp.h>
 
+int main(){
+  mpz_t value1, value2;
+  mpz_init_set_ui(value1, 0);
+  mpz_init_set_ui(value2, 1);
+  int count=0, how_many=0;
+  scanf("%d", &how_many);
+  
+  while(count<how_many){
+    mpz_add(value1, value1, value2);
+    gmp_printf("%Zd", value1);
+    mpz_add(value2, value1, value2);
+    gmp_printf("%Zd", value2);
+    count+=1;
+  }
+  system("pause");
+  mpz_clear(value1);
+  mpz_clear(value2);
+  return 0;
+}
